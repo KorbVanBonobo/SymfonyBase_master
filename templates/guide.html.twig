@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<header>
+            <div class="header">
+                <div class="headerTop">
+
+                </div>
+                <div class="headerFoot">
+                    <a href="/register">Inscription-----</a>
+                    <a href="/login">----Connexion</a>
+                </div>
+            </div>
+            <a href="/">
+                <div class="logo">
+                </div>
+            </a>
+                <div class="siteTitle">
+                    <h1>Pix my House</h1>
+                </div>
+</header>
+ <main>
+            <div class="jumbotron">
+                <div class="main mainPage">
+                    <h1>GUIDE</h1>
+                    <div class="headjumbo">
+                        <div class="guide">
+                            <h2>J'ai tout ce qu'il faut, comment je fait maintenant?</h2>
+                            <img src="{{ asset('images/frontpage/frontPage1.jpg') }}">
+                            <p>Wherever you plan to install your pixel art, measure the space and then use those measurements to figure out how many Post-it®
+                            Notes high and wide your design will be.</p>
+                            <img src="{{ asset('images/frontpage/frontPage2.jpg') }}">
+                            <p>Having a plan will make it easier to install your pixel art mural, and it will make the whole process go a lot more smoothly.
+                            Lay out your design on a computer or tablet, or if it's a simple design, you can sketch it out on Post-it® Grid Notes, or
+                            graphing paper. Each pixel in your grid represents a 3" x 3" space-the size of one Post-it® Super Sticky Note.</p>
+                            <img src="{{ asset('images/frontpage/frontPage3.jpg') }}">
+                        </div>
+                    </div>
+
+                    <div class="footjumbo">
+  
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    <footer>
+            <div class="logoCentre">
+            
+            </div>
+            <div class="footer">
+                <div class="fleche">
+                    <img src="{{ asset('images/Menu/fleche.png') }}" alt="">
+                </div>
+                <p>Copyrigth - wf3 - group4 -PixMyHouse</p>
+            </div>
+    </footer>
+{% endblock %}

@@ -1,0 +1,45 @@
+
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            <fieldset>
+                <legend>{{ 'commande.infos'|trans|parse_icons }}</legend>                
+                {{ form_row(form.montant)}}
+                {{ form_row(form.etat)}}  
+                {{ form_row(form.date_enregistrement)}}   
+                {{ form_row(form.user)}}                   
+            </fieldset> 
+        </div>
+        <div class="col-md-6">
+             <fieldset>
+                <legend>{{ 'commande.details'|trans|parse_icons }}</legend>
+                <table class="table table-dark table-striped  table-sm  table-responsive-md">
+                    <thead class="thead-light text-center">
+                        <tr class="text-center">
+                            <th>Id</th>
+                            <th>Quantite</th>
+                            <th>Prix</th>
+                            <th>Oeuvre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for detail in commande.detailCommandes %}
+                            <tr class="text-center">
+                                <td> {{ detail.id }}</td>
+                                <td>{{ detail.quantite }}</td>
+                                <td>{{ detail.prix }}</td>
+                                <td>{{ detail.oeuvres }} </td>
+                            </tr>
+                        {% endfor %} 
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+</div>
+<button class="btn btn-primary" type="submit" >{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
+
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}

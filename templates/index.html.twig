@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<header>
+            <div class="header">
+                <div class="headerTop">
+
+                </div>
+                <div class="headerFoot">
+                    <a href="/register">Inscription-----</a>
+                    <a href="/login">----Connexion</a>
+                </div>
+            </div>
+            <a href="/">
+                <div class="logo">
+                </div>
+            </a>
+                <div class="siteTitle">
+                    <h1>Pix my House</h1>
+                </div>
+</header>
+        <main>
+            <div class="jumbotron">
+                <div class="main mainPage">
+                    <div class="headjumbo">
+                    </div>
+
+                    <div class="footjumbo">
+                        <a href="/oeuvre/boutique">
+                            <div class="article1">
+                                <p>BOUTIQUE</p>
+                            </div>
+                        </a>
+                        <a href="/oeuvre/new">
+                            <div class="article2">
+                                <p>EDITEUR</p>
+                            </div>
+                        </a>
+                        <a href="/guide">
+                            <div class="article3">
+                                <p>GUIDE</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="logoCentre">
+            
+            </div>
+            <div class="footer">
+                <div class="fleche">
+                    <img src="{{ asset('images/Menu/fleche.png') }}" alt="Flèche">
+                </div>
+                <p>Copyrigth - wf3 - group4 -PixMyHouse</p>
+            </div>
+        </footer>
+{% endblock %}

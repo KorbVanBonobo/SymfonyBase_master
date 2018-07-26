@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<ul>
+    <li><a href="{{ path('user_index') }}" class="btn btn-primary mt-2 mb-2">Liste des utilisateurs</a></li>
+    <li><a href="{{ path('admin_oeuvre_index') }}" class="btn btn-primary mt-2 mb-2">Liste des oeuvres</a></li>
+    <li><a href="{{ path('commande_index') }}" class="btn btn-primary mt-2 mb-2">Liste des commandes</a></li>
+</ul>
+{% endblock %}

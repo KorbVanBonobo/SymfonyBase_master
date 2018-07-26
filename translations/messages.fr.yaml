@@ -1,0 +1,25 @@
+app_title: Blog WF3
+add: Ajouter
+delete: Supprimer
+edit: Modifier
+cancel: Annuler
+logout: Se déconnecter
+
+user:   
+    montant: Montant
+    email: Email
+    enabled: Actif
+    lastLogin: Connexion
+    roles: Role
+    id: Identifiant
+    infos: .icon-cog Informations
+    coordonnees: .icon-address-card Coordonnées
+commande:   
+    username: Nom
+    email: Email
+    enabled: Actif
+    client: Client
+    id: Identifiant
+    infos: .icon-cog Informations commande
+    details: .icon-address-card Details de la commande
+    user: Client

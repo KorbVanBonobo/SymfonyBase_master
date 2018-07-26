@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Oeuvre{% endblock %}
+
+{% block body %}
+
+                        <h2>{{oeuvre.nom}}</h2>
+                        <div class="row-oeuvre">
+                            <h5 class="oeuvre-taillex" data="{{ oeuvre.largeur }}"> {{ oeuvre.largeur }} pixels de largeur soit {{ oeuvre.largeur * 7.6 }} cm en taille réelle</h5>
+                            <h5 class="oeuvre-tailley" data="{{ oeuvre.hauteur }}"> {{ oeuvre.hauteur }} pixels de hauteur soit {{ oeuvre.hauteur * 7.6 }} cm en taille réelle</h5>
+                            <p class="oeuvre-img d-none" data="{{ oeuvre.tableau }}"></p>
+                            <p class="compteur d-none" data="{{oeuvre.compteur}}">{{oeuvre.compteur}}</p>
+                                                                        
+                                                                            {# <td class="oeuvre-taillex d-none" data="{{ oeuvre.largeur }}">{{ oeuvre.largeur }}</td>
+                                                                            <td class="oeuvre-tailley d-none" data="{{ oeuvre.hauteur }}">{{ oeuvre.hauteur }}</td> #} 
+                            <div class='b_main'>
+                                <div class="b_post_cont">
+                                                    {# Affichage du dessin #}
+                                </div>                    
+                            </div>
+
+                            <div class="compteur_c">
+                                <p class="total_post_it"></p>
+                                {# les trois <p> peuvent être déplacés  #}
+                                <p class="temp_moyen_post_it"></p>
+                                <p class="prix_post_it"></p>
+                                <p><small>(Frais de port pris en compte dans le prix des post-it)</small></p>
+
+                                                {# Affichage du nombre de couleur #}
+                            </div>   
+
+
+                                    {# Marketing #}
+                            
+                            <p><small>(Besoin d'aide ?)</small></p>
+                            <button type="button" class="btn btn-success"><strong>Ajouter ce kit au panier</strong></button>
+
+
+
+                            <div><a href="{{ path('oeuvre_index') }}" class="btn btn-primary mt-2 mb-2">Revenir à la boutique</a></div>
+                                                                                {# <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}"><i class="fa fa-edit"></i></a> #}
+                        </div>
+
+    
+{% endblock %}

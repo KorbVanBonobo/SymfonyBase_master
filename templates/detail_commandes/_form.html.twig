@@ -1,0 +1,20 @@
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }} #}
+
+
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            <fieldset>
+                <legend>{{ 'user.infos'|trans|parse_icons }}</legend>
+                 {{ form_row(form.quantite)}}
+                {{ form_row(form.prix)}}
+                {{ form_row(form.commande)}}
+                {{ form_row(form.oeuvres)}}
+            </fieldset>
+        </div>       
+    </div>
+    <button class="btn btn-primary mb-2" type="submit" >{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

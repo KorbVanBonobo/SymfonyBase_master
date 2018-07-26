@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des détails de commande{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-4 bg-secondary">Liste des détail de commandes</h1>
+
+    <table class="table table-dark table-striped  table-sm  table-responsive-md">
+        <thead class="thead-light text-center">
+            <tr  class="text-center">
+                <th>Id</th>
+                <th>Quantite</th>
+                <th>Prix</th>
+                <th>Oeuvre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for detail_commande in detail_commandes %}
+            <tr class="text-center">
+                <td>{{ detail_commande.id }}</td>
+                <td>{{ detail_commande.quantite }}</td>
+                <td>{{ detail_commande.prix }}</td>
+                <td>{{ detail_commande.oeuvres   }}</td>
+                <div class="btn-group">
+                    <td>
+                        {# <a class="btn btn-primary" href="{{path('detail_commandes_show', {'id' : detail_commande.id})}}"> <i class="fa fa-eye"></i></a>  #}
+                        <a class="btn btn-danger" href="{{path('detail_commandes_edit', {'id' : detail_commande.id})}}"> <i class="fa fa-edit"></i></a>
+                    </td>
+                </div>
+                {# <td>
+                    <a href="{{ path('detail_commandes_show', {'id': detail_commande.id}) }}">show</a>
+                    <a href="{{ path('detail_commandes_edit', {'id': detail_commande.id}) }}">edit</a>
+                </td> #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('detail_commandes_new') }}" class="btn btn-primary">Nouveau detail commande</a>
+        <br>
+    <a href="{{ path('adminindex') }}" class="btn btn-primary mt-2 mb-2">Retour à l'administration</a>
+{% endblock %}

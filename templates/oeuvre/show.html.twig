@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Oeuvre{% endblock %}
+
+{% block body %}
+    <h1>Oeuvre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ oeuvre.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ oeuvre.nom }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ oeuvre.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Largeur</th>
+            <td class="oeuvre-taillex" data="{{ oeuvre.largeur }}">{{ oeuvre.largeur }}</td>
+            </tr>
+            <tr>
+                <th>Hauteur</th>
+                <td>{{ oeuvre.hauteur }}</td>
+            </tr>
+            <tr>
+                <th>Tableau</th>
+                <td>{{ oeuvre.tableau }}</td>
+            </tr>
+            <tr>
+                <th>Id_utilisateur</th>
+                <td>{{ oeuvre.user }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ oeuvre.status ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('oeuvre_index') }}">revenir à la liste</a>
+
+    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">Modifier</a>
+
+    {{ include('oeuvre/_delete_form.html.twig') }}
+{% endblock %}

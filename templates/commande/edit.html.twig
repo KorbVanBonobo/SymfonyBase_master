@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition Commande{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-4 bg-secondary">Edition Commande</h1>   
+
+         
+        <div class="d-inline mb-2 ">{{ include('commande/_form.html.twig', {'button_label': 'Enregistrer'}) }}</div>
+        <div class="d-inline mb-2 "> <a href="{{ path('commande_index') }}" class="btn btn-primary mt-2">Retour à la liste des commandes</a> </div>
+        <div class="mt-2">  {{ include('commande/_delete_form.html.twig') }} </div>  
+
+        <div class="d-inline mb-2 "> <a href="{{ path('detail_commandes_index') }}" class="btn btn-primary mt-2">... vers liste des détails de commande</a> </div>
+
+
+{% endblock %}

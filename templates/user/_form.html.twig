@@ -1,0 +1,26 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            <fieldset>
+                <legend>{{ 'user.infos'|trans|parse_icons }}</legend>
+                 {{ form_row(form.enabled)}}
+                {{ form_row(form.username)}}
+                {{ form_row(form.plainPassword)}}
+                {{ form_row(form.email)}}
+                {{ form_row(form.roles)}}
+            </fieldset>
+        </div>
+        <div class="col-md-6">
+             <fieldset>
+                    <legend>{{ 'user.coordonnees'|trans|parse_icons }}</legend>
+                    {{ form_row(form) }}
+            </fieldset>
+        </div>
+    </div>
+    <button class="btn btn-primary mb-2" type="submit" >{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
+
+
+
+
+

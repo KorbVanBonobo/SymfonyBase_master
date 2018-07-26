@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique{% endblock %}
+
+{% block body %}
+
+<header>
+            <div class="header">
+                <div class="headerTop">
+
+                </div>
+                <div class="headerFoot">
+                    <a href="/register">Inscription-----</a>
+                    <a href="/login">----Connexion</a>
+                </div>
+            </div>
+            <a href="/">
+                <div class="logo">
+                </div>
+            
+                <div class="siteTitle">
+                    <h1>Pix my House</h1>
+                </div>
+            </a>
+</header>
+        <main>
+            <div class="jumbotron">
+                <div class="main mainPage">
+                    <h1>BOUTIQUE</h1>
+                    <div class="headjumbo">
+                        <div class="rechercher">
+                            <h2>Recherche :</h2>
+                        </div>
+                        <div class="articles">
+                            <h2>Liste des articles :</h2>
+
+
+                                                            <table class="table">
+                                                                    <tbody>
+                                                            {% for oeuvre in oeuvres %}
+                                                                
+                                                                {% if oeuvre.status == true %}
+
+                                                                    <div class="row-oeuvre">
+                                                                        <p class="oeuvre-taillex d-none" data="{{ oeuvre.largeur }}"></p>
+                                                                        <p class="oeuvre-tailley d-none" data="{{ oeuvre.hauteur }}"></p>
+                                                                        <p class="oeuvre-img d-none" data="{{ oeuvre.tableau }}"></p>
+                                                                        
+                                                                            {# <td class="oeuvre-taillex d-none" data="{{ oeuvre.largeur }}">{{ oeuvre.largeur }}</td>
+                                                                            <td class="oeuvre-tailley d-none" data="{{ oeuvre.hauteur }}">{{ oeuvre.hauteur }}</td> #} 
+                                                                            <div class='b_main'>
+                                                                                    <div class="b_post_cont">
+                                                                                        <!-- <div class="post_it"></div> -->
+                                                                                        <!-- Affichage des Post-it -->
+                                                                                        <!-- Les post-it font 50px/50px -->
+                                                                                    </div>                    
+                                                                            </div>
+                                                                            <div><a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}" class="btn btn-primary mt-2 mb-2">Afficher les details</a></div>
+                                                                                {# <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}"><i class="fa fa-edit"></i></a> #}
+                                                                        </div>
+                                                                    {% else %}
+                                                                        <tr>
+                                                                            <td colspan="9">Aucune données trouvées</td>
+                                                                        </tr>
+                                                                {% endif %}       
+                                                            {% endfor %}
+                                                                    </tbody>
+                                                                </table>
+                        </div>
+                    </div>
+
+                    <div class="footjumbo">
+  
+                    </div>
+                </div>
+            </div>
+        </main>
+<footer>
+            <div class="logoCentre">
+            
+            </div>
+            <div class="footer">
+                <div class="fleche">
+                     <img src="{{ asset('images/Menu/fleche.png') }}" alt="Flèche">
+                </div>
+                <p>Copyrigth - wf3 - group4 -PixMyHouse</p>
+            </div>
+</footer>
+
+
+{% block javascripts %}    
+<script src="{{ asset('build/js/boutique.js') }}"></script>
+{% endblock %}
+{% endblock %}
+

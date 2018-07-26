@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index Utilisateur{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-4 bg-secondary">Liste des utilisateurs</h1>
+
+    <table class="table table-dark table-striped  table-sm  table-responsive-md">
+        <thead class="thead-light text-center">
+            <tr class="text-center">
+                <th>{{"user.username"|trans}}</th>
+                <th>{{"user.email"|trans}}</th>
+                <th>{{"user.enabled"|trans}}</th>
+                <th>{{"user.lastLogin"|trans}}</th>
+                <th>{{"user.roles"|trans}}</th>
+                <th>{{"user.id"|trans}}</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>CodePostal</th>
+                <th>Ville</th>
+                <th>actions</th>
+                <th>Activation de l'oeuvre</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
+                <td>{{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.adresse }}</td>
+                <td>{{ user.codePostal }}</td>
+                <td>{{ user.ville }}</td> 
+                <td>
+                    <div class="btn-group">
+                        {# <td> <a class="btn btn-primary" href="{{path('user_show', {'id' : user.id})}}"> <i class="fa fa-eye"></i></a> #}
+                        <a class="btn btn-danger" href="{{path('user_edit', {'id' : user.id})}}"> <i class="fa fa-edit"></i></a></td>
+                    </div>
+                    {# <a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn-primary">show</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-primary">edit</a> #}
+                </td>
+                <td>{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button id="active" class="btn btn-primary mt-2 mb-2">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(form) }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">Aucun resulat trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_new') }}"  class="btn btn-primary">Nouvel Utilisateur</a>
+        <br>
+    <a href="{{ path('adminindex') }}" class="btn btn-primary mt-2 mb-2">Retour à l'administration</a>
+{% endblock %}

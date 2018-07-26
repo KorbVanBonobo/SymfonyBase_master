@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail des commandes{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-4 bg-secondary">Detail des commandes</h1>
+
+    {{ include('detail_commandes/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+    <a href="{{ path('detail_commandes_index') }}" class="btn btn-primary mt-2 mb-2">Retour à la liste des detail-commandes</a>
+
+   {{ include('detail_commandes/_delete_form.html.twig') }}
+{% endblock %}

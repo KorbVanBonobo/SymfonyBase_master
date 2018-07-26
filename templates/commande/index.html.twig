@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des commandes{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-4 bg-secondary">Commandes</h1>
+
+    <table class="table table-dark table-striped  table-sm  table-responsive-md">
+        <thead class="thead-light text-center">
+            <tr>
+                <th>Id</th>
+                <th>Montant</th>
+                <th>Date_enregistrement</th>
+                <th>Client</th>
+                <th>Etat</th>                
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr class="text-center">
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.montant }}</td>
+                <td>{{ commande.dateEnregistrement ? commande.dateEnregistrement|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.user }}</td>
+                <td>{{ commande.etat }}</td>
+                <td>
+                     <div class="btn-group">
+                        {# <a class="btn btn-danger" href="{{path('commande_show', {'id' : commande.id})}}"> <i class="fa fa-edit"></i></a> #}
+                        <a class="btn btn-danger" href="{{path('commande_edit', {'id' : commande.id})}}"> <i class="fa fa-edit"></i></a>
+                        {# <a href="{{ path('commande_show', {'id': commande.id}) }}">show</a>
+                        <a href="{{ path('commande_edit', {'id': commande.id}) }}">edit</a> #}
+                     </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('commande_new') }}" class="btn btn-primary">Nouvelle commande</a>
+    <br>
+    <a href="{{ path('adminindex') }}" class="btn btn-primary mt-2 mb-2">Retour à l'administration</a>
+{% endblock %}

@@ -1,0 +1,87 @@
+    {% extends 'admin/layout.html.twig' %}
+
+    {% block body %} 
+
+    {# on crrer une variable #}
+    {% set countByPage = 0 %}    
+
+            {% embed 'decorator/_card.html.twig' %}
+
+                    {% block header %}  {{'article.list'|trans|parse_icons}}
+                    {% endblock %}
+
+                    {% block body %}
+                        <a href="{{ path('app_admin_article_new')}}" class="btn btn-success float-right">{{'add'|trans}}</a>
+                    {% endblock %}
+
+                    {% block table %}  
+                        <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>{{'category.category'|trans}}</th>
+                                        <th>User</th>
+                                        <th>Date ajout</th>
+                                        <th>Date modif</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for entity in entities %}
+                                    {% set countByPage = countByPage + 1 %}
+                                    <tr>
+                                        <td> {{ entity.title }} </td>
+                                        <td>
+                                            {% for category in entity.categories %}
+                                            <span class="badge badge-primary mr-1"> {{ category }} </span>
+                                            {% endfor %}                                     
+                                        </td>
+                                        <td> {{ entity.user }} </td>
+                                        <td>  {{ entity.dateCreate|date('d/m/Y H:i') }} </td>
+                                        <td>  {{ entity.dateUpdate|date('d/m/Y H:i') }} </td>
+
+                                        <div class="btn-group">
+                                            <td> <a class="btn btn-primary" href="{{path('app_admin_article_edit', {'id' : entity.id})}}"> <i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-danger" href="{{path('app_admin_article_delete', {'id' : entity.id})}}"> <i class="fa fa-trash"></i></a></td>
+                                        </div>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                        </table>
+                    {% endblock %}
+
+
+            {% block footer %} 
+
+                <div class="float-left">
+                    {{ entities.iterator|length }} sur  {{ entities|length }} Article(s) 
+                </div>
+                {# {{ dump(nbPages)}} #}
+
+
+
+                <div class="float-right">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path('app_admin_article_index')}}">&laquo;</a>
+                            </li>
+
+                            {% for p in 1..nbPages %}                        
+                                <li class="page-item  {% if p == page %} {{'active'}}  {% endif %}">
+                                    <a class="page-link" href="{{ path('app_admin_article_index', {'page': p}  )}}">{{ p }}</a>
+                                </li>
+                            {% endfor %}
+
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path('app_admin_article_index', {'page': nbPages}  )}}">&raquo;</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            {% endblock %}
+
+
+            {% endembed %}
+    {% endblock %}
